@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-gray-200 min-h-screen">
+
+    <section>
+        <nav class="w-full bg-white">
+            <div class="navbar bg-base-100 shadow-sm">
+                <div class="flex-1 pl-10">
+                    <a class="btn btn-ghost gap-2">
+                        <i class="fa-brands fa-github text-3xl sm:text-xl"></i>
+                        <span class="hidden sm:inline sm:text-xl">GitHub Issues Tracker</span>
+                    </a>
+                </div>
+                <div class="flex gap-2 pr-10">
+                    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+
+                    <button class="bg-blue-600 text-white px-4 rounded-lg cursor-pointer"> Search</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="w-10/11 md:w-5/6 lg:w-7/9 bg-white mx-auto mt-10  p-4 shadow-sm rounded-lg">
+            <div class="flex items-center justify-center gap-3 sm:flex-none sm:justify-normal  mr-4">
+                <button class="btn btn-soft btn-info mr-3 btn-active" id="all-job">All</button>
+                <button class="btn btn-soft btn-info mr-3" id="interview-list">Interview</button>
+                <button class="btn btn-soft btn-info " id="reject-list">Rejected</button>
+
+            </div>
+        </div>
+
+        <div class=" flex justify-between w-10/11 md:w-5/6 lg:w-7/9 bg-white mx-auto mt-4 p-4 shadow-sm rounded-lg">
+            <div class="flex flex-row">
+                <img class="bg-[#ECE4FF] p-[6px] rounded-full" src="./assets/Aperture.png">
+                <div class="text-sm pl-2">
+                <p class="font-bold">50 Issues</p>
+                <p class="text-gray-500">Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end items-center gap-4">
+                <span><i class="fa-solid fa-circle" style="color: rgb(3, 142, 39);"></i> Open</span>
+                <span><i class="fa-solid fa-circle" style="color: rgb(138, 99, 252);"></i> Closed</span>
+            </div>
+        </div>
+
+        <div id="level-container"class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-10/11 md:w-5/6 lg:w-7/9 mx-auto mt-4">
+
+        <div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 border-green-600">
+            <div class="flex justify-between ">
+                <img class="size-8" src="./assets/Open-Status.png">
+                <span class="bg-gray-300 py-1 px-4 rounded-2xl">High</span>
+            </div>
+            <h2 class="font-bold text-2xl">Fix navigation menu on mobile devices</h2>
+            <p class=" text-gray-500">The navigation menu doesn't collapse properly on mobile devices...</p>
+
+            <div class="flex gap-3 text-sm font-normal ">
+                <p class="bg-red-100 text-red-600 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-bug" style="color: rgb(246, 69, 69);"></i> BUG</p>
+                <p class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-life-ring" style="color: rgb(170, 135, 11);"></i> HELP WANTED</p>
+
+            </div>
+
+            <hr class="border-gray-300">
+            <p>#1 by jphn_doe</p>
+            <p>Date</p>
+            
+            </div>
+
+            
+
+
+
+            
+
+
+
+
+            
+
+
+            
+            </div>
+        
+
+
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>
