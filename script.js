@@ -1,3 +1,20 @@
+document.getElementById("loginBtn").addEventListener("click", function () {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const defaultUsername = "admin";
+    const defaultPassword = "admin123";
+
+    if (username === defaultUsername && password === defaultPassword) {
+        window.location.href = "./dashbord.html";
+    } else {
+        alert("Invalid Username or Password");
+    }
+});
+
+
+
 const allBtn = document.getElementById("all-job");
 const interviewBtn = document.getElementById("interview-list");
 const rejectBtn = document.getElementById("reject-list");
@@ -19,3 +36,5 @@ rejectBtn.onclick = function () {
     allBtn.classList.remove("btn-active");
     interviewBtn.classList.remove("btn-active");
 };
+
+
