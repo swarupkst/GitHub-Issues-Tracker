@@ -6,32 +6,41 @@ allBtn.onclick = function () {
     allBtn.classList.add("btn-active");
     openBtn.classList.remove("btn-active");
     rejectBtn.classList.remove("btn-active");
+
+    showAll();
 };
 
 openBtn.onclick = function () {
     openBtn.classList.add("btn-active");
     allBtn.classList.remove("btn-active");
     rejectBtn.classList.remove("btn-active");
+
+    showOpen();
 };
 
 rejectBtn.onclick = function () {
     rejectBtn.classList.add("btn-active");
     allBtn.classList.remove("btn-active");
     openBtn.classList.remove("btn-active");
+
+    showClosed();
 };
 
 //API
 
-let allIssues = [];  // Global variable
+let allIssues = [];
 
 const loadIssues = () => {
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then(res => res.json())
         .then(data => {
-            allIssues = data.data;  // Save for filtering
-            displayIssues(allIssues);  // Initially show all
+            allIssues = data.data; 
+            displayIssues(allIssues);
+            updateCount(allIssues);
         });
 };
+
+
 
 const displayIssues = (issues) => {
 
@@ -77,18 +86,26 @@ const displayIssues = (issues) => {
     });
 };
 
+const updateCount = (issues) => {
+    document.getElementById("issue-count").innerText = issues.length + " Issues";
+};
+
 const showAll = () => {
     displayIssues(allIssues);
+    updateCount(allIssues);
 };
 
 const showOpen = () => {
     const openIssues = allIssues.filter(issue => issue.status === "open");
     displayIssues(openIssues);
+    updateCount(openIssues);
+    
 };
 
 const showClosed = () => {
     const closedIssues = allIssues.filter(issue => issue.status === "closed");
     displayIssues(closedIssues);
+    updateCount(closedIssues);
 };
 
 loadIssues();
