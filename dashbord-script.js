@@ -1,6 +1,8 @@
 const allBtn = document.getElementById("all");
 const openBtn = document.getElementById("open");
 const rejectBtn = document.getElementById("close");
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
 
 allBtn.onclick = function () {
     allBtn.classList.add("btn-active");
@@ -126,6 +128,30 @@ const showClosed = () => {
     const closedIssues = allIssues.filter(issue => issue.status === "closed");
     displayIssues(closedIssues);
     updateCount(closedIssues);
+};
+
+//Search API call and function
+
+const searchIssues = () => {
+
+    const searchText = searchInput.value;
+
+    toggleLoader(true);
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`)
+        .then(res => res.json())
+        .then(data => {
+
+            const issues = data.data;
+
+            displayIssues(issues);
+            updateCount(issues);
+
+            toggleLoader(false);
+        });
+};
+searchBtn.onclick = function () {
+    searchIssues();
 };
 
 loadIssues();
