@@ -68,16 +68,16 @@
             <div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 border-green-600">
                 <div class="flex justify-between ">
                     <img class="size-8" src="./assets/Open-Status.png">
-                    <span class="bg-gray-300 py-1 px-4 rounded-2xl">High</span>
+                    <span class="bg-gray-300 py-1 px-4 rounded-2xl"></span>
                 </div>
-                <h2 class="font-bold text-2xl">Fix navigation menu on mobile devices</h2>
-                <p class=" text-gray-500">The navigation menu doesn't collapse properly on mobile devices...</p>
+                <h2 class="font-bold text-2xl"></h2>
+                <p class=" text-gray-500"></p>
 
                 <div class="flex gap-3 text-sm font-normal ">
                     <p class="bg-red-100 text-red-600 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-bug"
-                            style="color: rgb(246, 69, 69);"></i> BUG</p>
+                            style="color: rgb(246, 69, 69);"></i> </p>
                     <p class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-3xl font-semibold"> <i
-                            class="fa-solid fa-life-ring" style="color: rgb(170, 135, 11);"></i> HELP WANTED</p>
+                            class="fa-solid fa-life-ring" style="color: rgb(170, 135, 11);"></i> </p>
 
                 </div>
 
@@ -90,6 +90,45 @@
 
 
     </section>
+    <dialog id="issueModal" class="modal">
+  <div class="modal-box max-w-xl">
+    
+    <div class="flex items-center justify-between mb-3">
+      <h3 id="modal-title" class="font-bold text-xl"></h3>
+
+    </div>
+    <div class="flex pb-4 gap-4">
+    <span id="modal-status" class="px-3 py-1 rounded-full text-white text-sm"></span>
+
+    <span><i class="fa-solid fa-circle" style="color: rgb(123, 122, 118);"></i> Opened by <span id="modal-author"></span></span>
+
+    <span><i class="fa-solid fa-circle size-4" style="color: rgb(123, 122, 118);"></i><span id="modal-date"></span> </span>
+</div>
+
+    <div id="modal-labels" class="flex gap-2 mb-3"></div>
+
+    <p id="modal-description" class="text-gray-600 mb-4"></p>
+
+    <div class="grid grid-cols-2 gap-4 bg-gray-100 p-4 rounded-lg mb-4">
+      <div>
+        <p class="text-sm text-gray-500">Assignee:</p>
+        <p id="modal-assignee" class="font-semibold"></p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-500">Priority:</p>
+        <span id="modal-priority" class="px-3 py-1 rounded-full text-white text-sm"></span>
+      </div>
+    </div>
+
+    <div class="modal-action">
+  <form method="dialog">
+    <button class="btn btn-primary">Close</button>
+  </form>
+</div>
+  </div>
+</dialog>
+
+    
     <script src="./dashbord-script.js"></script>
 </body>
 

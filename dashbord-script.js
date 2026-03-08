@@ -65,32 +65,50 @@ const displayIssues = (issues) => {
         const card = document.createElement("div");
 
         card.innerHTML = `
-        <div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 ${statusColor}">
+<div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 ${statusColor} flex flex-col h-full">
         
-            <div class="flex justify-between">
-                <img class="size-8" src="${statusIcon}">
-                <span class="bg-gray-300 py-1 px-4 rounded-2xl">${issue.priority}</span>
-            </div>
+    <div class="flex justify-between">
+        <img class="size-8" src="${statusIcon}">
+        <span class="bg-gray-300 py-1 px-4 rounded-2xl">${issue.priority}</span>
+    </div>
 
-            <h2 class="font-bold text-2xl">${issue.title}</h2>
+    <h2 class="font-bold text-2xl">${issue.title}</h2>
 
-            <p class="text-gray-500">
-                ${issue.description}
-            </p>
+    <p class="text-gray-500">
+        ${issue.description}
+    </p>
 
-            <div class="flex gap-3 text-sm font-normal ">
-                <p class="bg-red-100 text-red-600 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-bug" style="color: rgb(246, 69, 69);"></i> ${issue.labels[0]}</p>
-                <p class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-life-ring" style="color: rgb(170, 135, 11);"></i> ${issue.labels[1]}</p>
+    <div class="flex gap-3 text-sm font-normal">
 
-            </div>
+        ${
+            issue.labels[0] 
+            ? `<p class="bg-red-100 text-red-600 px-4 py-2 rounded-3xl font-semibold">
+                <i class="fa-solid fa-bug"></i> ${issue.labels[0]}
+               </p>`
+            : ""
+        }
 
-            <hr class="border-gray-300">
+        ${
+            issue.labels[1] 
+            ? `<p class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-3xl font-semibold">
+                <i class="fa-solid fa-life-ring"></i> ${issue.labels[1]}
+               </p>`
+            : ""
+        }
 
-            <p>#${issue.id} by ${issue.author}</p>
-            <p>${issue.createdAt.slice(0, 10)}</p>
+    </div>
 
-        </div>
-        `;
+    <hr class="border-gray-300">
+
+    <p>#${issue.id} by ${issue.author}</p>
+    <p>${issue.createdAt.slice(0, 10)}</p>
+
+</div>
+`;
+
+card.addEventListener("click", () => {
+    openModal(issue);
+});
 
         container.appendChild(card);
     });
@@ -152,6 +170,71 @@ const searchIssues = () => {
 };
 searchBtn.onclick = function () {
     searchIssues();
+};
+
+const openModal = (issue) => {
+
+    // Title
+    document.getElementById("modal-title").innerText = issue.title;
+
+    // Status
+    const statusEl = document.getElementById("modal-status");
+
+    if (issue.status === "open") {
+        statusEl.innerText = "Opened";
+        statusEl.className = "px-3 py-1 rounded-full text-white text-sm bg-green-500";
+    } else {
+        statusEl.innerText = "Closed";
+        statusEl.className = "px-3 py-1 rounded-full text-white text-sm bg-purple-500";
+    }
+
+    // Author
+    document.getElementById("modal-author").innerText = issue.author;
+
+    // Date
+    document.getElementById("modal-date").innerText =
+        issue.createdAt.slice(0, 10);
+
+    // Description
+    document.getElementById("modal-description").innerText =
+        issue.description;
+
+    // Assignee
+    document.getElementById("modal-assignee").innerText =
+        issue.author;
+
+    // Priority
+    const priorityEl = document.getElementById("modal-priority");
+    priorityEl.innerText = issue.priority;
+
+    if (issue.priority.toLowerCase() === "high") {
+        priorityEl.className =
+            "px-3 py-1 rounded-full text-white text-sm bg-red-500";
+    } else if (issue.priority.toLowerCase() === "medium") {
+        priorityEl.className =
+            "px-3 py-1 rounded-full text-white text-sm bg-yellow-500";
+    } else {
+        priorityEl.className =
+            "px-3 py-1 rounded-full text-white text-sm bg-green-500";
+    }
+
+    // Labels
+    const labelsContainer = document.getElementById("modal-labels");
+    labelsContainer.innerHTML = "";
+
+    issue.labels.forEach(label => {
+        const span = document.createElement("span");
+
+        span.className =
+            "px-3 py-1 rounded-full text-sm bg-gray-200 text-gray-700";
+
+        span.innerText = label;
+
+        labelsContainer.appendChild(span);
+    });
+
+    // Show modal
+    document.getElementById("issueModal").showModal();
 };
 
 loadIssues();
