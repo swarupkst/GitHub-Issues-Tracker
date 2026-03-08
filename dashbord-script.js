@@ -31,12 +31,20 @@ rejectBtn.onclick = function () {
 let allIssues = [];
 
 const loadIssues = () => {
+    toggleLoader(true);
     fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
         .then(res => res.json())
         .then(data => {
-            allIssues = data.data; 
-            displayIssues(allIssues);
-            updateCount(allIssues);
+            setTimeout(() => {
+
+                allIssues = data.data;
+
+                displayIssues(allIssues);
+                updateCount(allIssues);
+
+                toggleLoader(false);
+
+            },);
         });
 };
 
@@ -77,7 +85,7 @@ const displayIssues = (issues) => {
             <hr class="border-gray-300">
 
             <p>#${issue.id} by ${issue.author}</p>
-            <p>${issue.createdAt.slice(0,10)}</p>
+            <p>${issue.createdAt.slice(0, 10)}</p>
 
         </div>
         `;
@@ -85,6 +93,18 @@ const displayIssues = (issues) => {
         container.appendChild(card);
     });
 };
+
+const toggleLoader = (show) => {
+    const loader = document.getElementById("loader");
+
+    if (show) {
+        loader.classList.remove("hidden");
+    } else {
+        loader.classList.add("hidden");
+    }
+};
+
+
 
 const updateCount = (issues) => {
     document.getElementById("issue-count").innerText = issues.length + " Issues";
@@ -99,7 +119,7 @@ const showOpen = () => {
     const openIssues = allIssues.filter(issue => issue.status === "open");
     displayIssues(openIssues);
     updateCount(openIssues);
-    
+
 };
 
 const showClosed = () => {

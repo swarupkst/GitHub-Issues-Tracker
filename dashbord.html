@@ -49,8 +49,8 @@
             <div class="flex flex-row">
                 <img class="bg-[#ECE4FF] p-[6px] rounded-full" src="./assets/Aperture.png">
                 <div class="text-sm pl-2">
-                <p id="issue-count" class="font-bold">0</p>
-                <p class="text-gray-500">Track and manage your project issues</p>
+                    <p id="issue-count" class="font-bold">0</p>
+                    <p class="text-gray-500">Track and manage your project issues</p>
                 </div>
             </div>
 
@@ -59,29 +59,35 @@
                 <span><i class="fa-solid fa-circle" style="color: rgb(138, 99, 252);"></i> Closed</span>
             </div>
         </div>
+        <div id="loader" class="text-center py-10 hidden">
+            <span class="loading loading-spinner loading-lg text-primary size-52"></span>
+        </div>
 
-        <div id="level-container"class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-10/11 md:w-5/6 lg:w-8/9 mx-auto mt-4">
+        <div id="level-container"
+            class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-10/11 md:w-5/6 lg:w-8/9 mx-auto mt-4">
 
-        <div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 border-green-600">
-            <div class="flex justify-between ">
-                <img class="size-8" src="./assets/Open-Status.png">
-                <span class="bg-gray-300 py-1 px-4 rounded-2xl">High</span>
-            </div>
-            <h2 class="font-bold text-2xl">Fix navigation menu on mobile devices</h2>
-            <p class=" text-gray-500">The navigation menu doesn't collapse properly on mobile devices...</p>
+            <div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 border-green-600">
+                <div class="flex justify-between ">
+                    <img class="size-8" src="./assets/Open-Status.png">
+                    <span class="bg-gray-300 py-1 px-4 rounded-2xl">High</span>
+                </div>
+                <h2 class="font-bold text-2xl">Fix navigation menu on mobile devices</h2>
+                <p class=" text-gray-500">The navigation menu doesn't collapse properly on mobile devices...</p>
 
-            <div class="flex gap-3 text-sm font-normal ">
-                <p class="bg-red-100 text-red-600 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-bug" style="color: rgb(246, 69, 69);"></i> BUG</p>
-                <p class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-life-ring" style="color: rgb(170, 135, 11);"></i> HELP WANTED</p>
+                <div class="flex gap-3 text-sm font-normal ">
+                    <p class="bg-red-100 text-red-600 px-4 py-2 rounded-3xl font-semibold"> <i class="fa-solid fa-bug"
+                            style="color: rgb(246, 69, 69);"></i> BUG</p>
+                    <p class="bg-yellow-200 text-yellow-700 px-4 py-2 rounded-3xl font-semibold"> <i
+                            class="fa-solid fa-life-ring" style="color: rgb(170, 135, 11);"></i> HELP WANTED</p>
 
-            </div>
+                </div>
 
-            <hr class="border-gray-300">
-            <p>#1 by jphn_doe</p>
-            <p>Date</p>
+                <hr class="border-gray-300">
+                <p>#1 by jphn_doe</p>
+                <p>Date</p>
             </div>
         </div>
-        
+
 
 
     </section>
