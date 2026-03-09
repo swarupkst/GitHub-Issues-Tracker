@@ -1,17 +1,17 @@
 1️⃣ What is the difference between var, let, and const? <br>
-<b>Answer:</b> var, let, and const are used to declare variables.
-var works within the entire function and the same variable can be declared again.
-let is a modern keyword introduced in ES6. It cannot be redeclared, but its value can be changed.
+<b>Answer:</b> var, let, and const are used to declare variables. <br>
+var works within the entire function and the same variable can be declared again. <br>
+let is a modern keyword introduced in ES6. It cannot be redeclared, but its value can be changed.<br>
 const Once declared, its value cannot be changed and it cannot be redeclared.
 
 2️⃣ What is the spread operator (...)?<br>
 <b>Answer:</b> spread operator is used to spread the elements of an array or object separately.
 
 3️⃣ What is the difference between map(), filter(), and forEach()? <br>
-<b>Answer:</b> map(), filter() and forEach() are all used to operate on arrays.
-map() is used when a new array needs to be created by performing an operation on each element of the array.
-filter() is used when a new array needs to be created by selecting some elements from the array based on a condition. It is mainly used for data filtering.
-forEach() is used only to loop over each element of the array. It is usually used for console logging, DOM updating or some other side effect and it does not return a new array.
+<b>Answer:</b> map(), filter() and forEach() are all used to operate on arrays. <br>
+map() is used when a new array needs to be created by performing an operation on each element of the array. <br>
+filter() is used when a new array needs to be created by selecting some elements from the array based on a condition. It is mainly used for data filtering. <br>
+forEach() is used only to loop over each element of the array. It is usually used for console logging, DOM updating or some other side effect and it does not return a new array.<br>
 
 4️⃣ What is an arrow function? <br>
 <b>Answer:</b> Arrow Function is a short syntax function that came in ES6.
