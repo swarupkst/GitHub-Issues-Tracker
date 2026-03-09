@@ -63,6 +63,7 @@ const displayIssues = (issues) => {
         const statusIcon = issue.status === "open" ? "./assets/Open-Status.png" : "./assets/Closed-Status.png";
 
         const card = document.createElement("div");
+        
 
         card.innerHTML = `
 <div class="bg-white rounded-xl py-5 px-5 space-y-4 border-t-4 ${statusColor} flex flex-col h-full">
@@ -174,10 +175,10 @@ searchBtn.onclick = function () {
 
 const openModal = (issue) => {
 
-    // Title
+
     document.getElementById("modal-title").innerText = issue.title;
 
-    // Status
+
     const statusEl = document.getElementById("modal-status");
 
     if (issue.status === "open") {
@@ -188,22 +189,19 @@ const openModal = (issue) => {
         statusEl.className = "px-3 py-1 rounded-full text-white text-sm bg-purple-500";
     }
 
-    // Author
     document.getElementById("modal-author").innerText = issue.author;
 
-    // Date
+
     document.getElementById("modal-date").innerText =
         issue.createdAt.slice(0, 10);
 
-    // Description
     document.getElementById("modal-description").innerText =
         issue.description;
 
-    // Assignee
     document.getElementById("modal-assignee").innerText =
-        issue.author;
+        issue.assignee;
 
-    // Priority
+
     const priorityEl = document.getElementById("modal-priority");
     priorityEl.innerText = issue.priority;
 
@@ -218,7 +216,6 @@ const openModal = (issue) => {
             "px-3 py-1 rounded-full text-white text-sm bg-green-500";
     }
 
-    // Labels
     const labelsContainer = document.getElementById("modal-labels");
     labelsContainer.innerHTML = "";
 
@@ -233,7 +230,6 @@ const openModal = (issue) => {
         labelsContainer.appendChild(span);
     });
 
-    // Show modal
     document.getElementById("issueModal").showModal();
 };
 

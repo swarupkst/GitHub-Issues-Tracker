@@ -7,7 +7,7 @@ document.getElementById("loginBtn").addEventListener("click", function () {
     const defaultPassword = "admin123";
 
     if (username === defaultUsername && password === defaultPassword) {
-        window.location.href = "./dashbord.html";
+        window.location.href = "../dashbord.html";
     } else {
         alert("Invalid Username or Password");
     }
